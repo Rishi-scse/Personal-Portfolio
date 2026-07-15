@@ -6,6 +6,7 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Research', href: '#research' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' }
 ];
@@ -39,19 +40,25 @@ export function Navigation() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-slate-950/75 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-cyan-950/10' 
+            ? 'bg-slate-950/80 backdrop-blur-md border-b border-cyan-500/10 shadow-lg shadow-cyan-950/10' 
             : 'bg-transparent border-b border-transparent'
         }`}
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group">
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                <Code2 className="w-6 h-6 text-white" />
+            {/* Logo & Availability Status */}
+            <div className="flex items-center gap-4">
+              <a href="#" className="flex items-center gap-2 group">
+                <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                  <Code2 className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 font-mono tracking-wider">RRV</span>
+              </a>
+              <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-[10px] font-semibold text-cyan-400 uppercase tracking-widest font-mono shadow-[0_0_10px_rgba(6,182,212,0.05)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#06b6d4]" />
+                Online & Available
               </div>
-              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">RRV</span>
-            </a>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
@@ -106,7 +113,7 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-y-0 right-0 z-40 w-full sm:w-80 bg-slate-950/95 backdrop-blur-lg border-l border-slate-800 md:hidden"
+            className="fixed inset-y-0 right-0 z-40 w-full sm:w-80 bg-slate-950/95 backdrop-blur-lg border-l border-cyan-500/10 md:hidden"
           >
             <div className="flex flex-col gap-6 p-8 pt-24">
               {navItems.map((item, idx) => (
@@ -117,7 +124,7 @@ export function Navigation() {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="text-2xl text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="text-2xl text-slate-300 hover:text-cyan-400 transition-colors font-semibold"
                 >
                   {item.name}
                 </motion.a>
